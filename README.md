@@ -4,6 +4,7 @@
     {
       "nginx": {
         "proxy": {
+          "listen": "80",
           "location": {
             "name": "/",
             "proxy_set_header": [
@@ -24,6 +25,7 @@
     {
       "nginx": {
         "proxy": {
+          "listen": "9000",
           "location": {
             "name": "/myproxy",
             "proxy_set_header": [],

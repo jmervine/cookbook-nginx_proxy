@@ -7,6 +7,7 @@ default['nginx']['client_max_body_size']     = "4G"
 
 default['nginx']['app_name']                 = "proxy"
 
+default['nginx']['proxy']['listen']                        = "80"
 default['nginx']['proxy']['location']['name']              = "/"
 default['nginx']['proxy']['location']['proxy_set_header']  = [ "X-Forwarded-For $proxy_add_x_forwarded_for;", "Host $http_host;" ]
 default['nginx']['proxy']['location']['proxy_redirect']    = "off"
