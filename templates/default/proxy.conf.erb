@@ -1,33 +1,33 @@
 server {
-  listen       <%= listen %>;
-  server_name  <%= server_name %>;
+  listen       <%= @listen %>;
+  server_name  <%= @server_name %>;
 
-  client_max_body_size <%= client_max_body_size %>;
-  keepalive_timeout <%= keepalive_timeout %>;
+  client_max_body_size <%= @client_max_body_size %>;
+  keepalive_timeout <%= @keepalive_timeout %>;
 
-  location <%= location['name'] %> {
-<%   if location['proxy_set_header'].respond_to(:each)
-     location['proxy_set_header'].each do |proxy_set_header| %>
+  location <%= @location['name'] %> {
+<%   if @location['proxy_set_header'].respond_to(:each)
+     @location['proxy_set_header'].each do |proxy_set_header| %>
        proxy_set_header <%= proxy_set_header %>;
 <%   end
      else %>
-       proxy_set_header <%= location['proxy_set_header'] %>;
+       proxy_set_header <%= @location['proxy_set_header'] %>;
 <%   end
 
-     if location['proxy_pass_header'].respond_to(:each)
-     location['proxy_pass_header'].each do |proxy_pass_header| %>
+     if @location['proxy_pass_header'].respond_to(:each)
+     @location['proxy_pass_header'].each do |proxy_pass_header| %>
        proxy_pass_header <%= proxy_pass_header %>;
 <%   end
      else %>
-       proxy_pass_header <%= location['proxy_pass_header'] %>;
+       proxy_pass_header <%= @location['proxy_pass_header'] %>;
 <%   end %>
-    proxy_redirect <%= location['proxy_redirect'] %>;
+    proxy_redirect <%= @location['proxy_redirect'] %>;
 
     if (!-f $request_filename) {
-      proxy_pass <%= location['proxy_pass'] %>;
+      proxy_pass <%= @location['proxy_pass'] %>;
       break;
     }
-    root <%= location['root'] %>;
+    root <%= @location['root'] %>;
   }
 }
 
