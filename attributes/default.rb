@@ -8,7 +8,6 @@ default['nginx']['rails']                    = {}
 
 default['nginx']['rails']['location']['name']              = "/"
 default['nginx']['rails']['location']['proxy_set_header']  = [ "X-Forwarded-For $proxy_add_x_forwarded_for;", "Host $http_host;" ]
-default['nginx']['rails']['location']['proxy_pass_header'] = [ "X-app-token;" ]
 default['nginx']['rails']['location']['proxy_redirect']    = "off"
 default['nginx']['rails']['location']['proxy_pass']        = "http://0.0.0.0:9000"
 
