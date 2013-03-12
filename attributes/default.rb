@@ -10,7 +10,7 @@ default['nginx']['app_name']                 = "proxy"
 default['nginx']['proxy']['listen']                        = "80"
 default['nginx']['proxy']['server_name']                   = "_"
 default['nginx']['proxy']['location']['name']              = "/"
-default['nginx']['proxy']['location']['proxy_set_header']  = [ "X-Forwarded-For $proxy_add_x_forwarded_for;", "Host $http_host;" ]
+default['nginx']['proxy']['location']['proxy_set_header']  = [ "X-Forwarded-For $proxy_add_x_forwarded_for", "Host $http_host" ]
 default['nginx']['proxy']['location']['proxy_redirect']    = "off"
 default['nginx']['proxy']['location']['proxy_pass']        = "http://0.0.0.0:9000"
 
