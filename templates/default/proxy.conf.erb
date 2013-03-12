@@ -6,7 +6,7 @@ server {
   keepalive_timeout <%= @keepalive_timeout %>;
 
   location <%= @location['name'] %> {
-<%   if @location['proxy_set_header'].respond_to(:each)
+<%   if @location['proxy_set_header'].respond_to?(:each)
      @location['proxy_set_header'].each do |proxy_set_header| %>
        proxy_set_header <%= proxy_set_header %>;
 <%   end
