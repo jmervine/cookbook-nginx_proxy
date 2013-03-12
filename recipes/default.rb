@@ -17,7 +17,8 @@ template "/etc/nginx/sites-enabled/#{node['nginx']['app_name']}.conf" do
     :client_max_body_size => node['nginx']['client_max_body_size'],
     :keepalive_timeout    => node['nginx']['keepalive_timeout'],
     :listen               => node['nginx']['proxy']['listen'],
-    :location             => node['nginx']['proxy']['location']
+    :location             => node['nginx']['proxy']['location'],
+    :server_name          => node['nginx']['proxy']['server_name']
   })
 end
 

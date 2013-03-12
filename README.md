@@ -5,6 +5,7 @@
       "nginx": {
         "proxy": {
           "listen": "80",
+          "server_name": "_",
           "location": {
             "name": "/",
             "proxy_set_header": [
