@@ -3,7 +3,7 @@
     // defaults
     {
       "nginx": {
-        "rails": {
+        "proxy": {
           "location": {
             "name": "/",
             "proxy_set_header": [
@@ -23,7 +23,7 @@
     // 'proxy_set_header' below.
     {
       "nginx": {
-        "rails": {
+        "proxy": {
           "location": {
             "name": "/myproxy",
             "proxy_set_header": [],

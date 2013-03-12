@@ -9,15 +9,15 @@ bash "ensure sites-enabled" do
 end
 
 template "/etc/nginx/sites-enabled/#{node['nginx']['app_name']}.conf" do
-  source "rails.nginx.erb"
+  source "proxy.nginx.erb"
   mode 0664
   owner "root"
   group "root"
   variables({
     :client_max_body_size => node['nginx']['client_max_body_size'],
-    :keepalive_timeout => node['nginx']['keepalive_timeout'],
-    :listen => node['nginx']['rails']['location_listen'],
-    :location => node['nginx']['rails']['location']
+    :keepalive_timeout    => node['nginx']['keepalive_timeout'],
+    :listen               => node['nginx']['proxy']['location_listen'],
+    :location             => node['nginx']['proxy']['location']
   })
 end
 
