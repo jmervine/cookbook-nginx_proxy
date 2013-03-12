@@ -9,7 +9,7 @@ bash "ensure sites-enabled" do
 end
 
 template "/etc/nginx/sites-enabled/#{node['nginx']['app_name']}.conf" do
-  source "proxy.nginx.erb"
+  source "proxy.conf.erb"
   mode 0664
   owner "root"
   group "root"
