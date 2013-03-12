@@ -27,9 +27,11 @@ bash "ensure #{node['nginx']['app_name']}.conf enabled" do
   cwd "/etc/nginx"
   code <<-EOH
     if test -d conf.d; then
-      ln -s sites-enabled/#{node['nginx']['app_name']}.conf
+      test -L conf.d/#{node['nginx']['app_name']}.conf || \
+        ln -s sites-enabled/#{node['nginx']['app_name']}.conf conf.d/#{node['nginx']['app_name']}.conf
     else
-      ln -s sites-enabled conf.d
+      test -L conf.d || \
+        ln -s sites-enabled conf.d
     fi
   EOH
 end
