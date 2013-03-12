@@ -1,5 +1,5 @@
-default['nginx']['install_method']           = "package"
-default['nginx']['user']                     = "root"
+default['nginx']['install_method']           = "source"
+default['nginx']['user']                     = "nginx"
 default['nginx']['keepalive_timeout']        = "5"
 default['nginx']['worker_processes']         = "1"
 default['nginx']['default_site_enabled']     = false
