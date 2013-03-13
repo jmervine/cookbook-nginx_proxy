@@ -22,16 +22,16 @@ template "/etc/nginx/sites-enabled/#{node['nginx']['app_name']}.conf" do
   })
 end
 
-bash "ensure #{node['nginx']['app_name']}.conf enabled" do
-  user "root"
-  cwd "/etc/nginx"
-  code <<-EOH
-    set -x
-    test -d conf.d && \
-      test -L conf.d/#{node['nginx']['app_name']}.conf || \
-        ln -s conf.d/#{node['nginx']['app_name']}.conf sites-enabled/#{node['nginx']['app_name']}.conf
+#bash "ensure #{node['nginx']['app_name']}.conf enabled" do
+  #user "root"
+  #cwd "/etc/nginx"
+  #code <<-EOH
+    #set -x
+    #test -d conf.d && \
+      #test -L conf.d/#{node['nginx']['app_name']}.conf || \
+        #ln -s conf.d/#{node['nginx']['app_name']}.conf sites-enabled/#{node['nginx']['app_name']}.conf
 
-    test -L conf.d || \
-      ln -s conf.d sites-enabled
-  EOH
-end
+    #test -L conf.d || \
+      #ln -s conf.d sites-enabled
+  #EOH
+#end
